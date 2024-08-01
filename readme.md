@@ -1,6 +1,6 @@
 # White Album
 
-![White Album Banner](https://github.com/qyu4x/white-album/blob/main/images/banner.jpg)
+![White Album Banner](https://github.com/qyu4x/white-album/blob/main/images/readme-banner.jpg)
 
 Welcome to **White Album**! These are notes and material codes about data structures and algorithms that I made myself based on my learning journey.
 
