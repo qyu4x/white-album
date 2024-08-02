@@ -49,6 +49,45 @@ class DSAString {
         }
     }
 
+    public void printRotateString() {
+        byte[] bytesOfData = this.data.getBytes();
+
+        int length = this.data.length();
+        int left = 0;
+        int right = (length - 1) - left;
+
+        byte[] kataLine = new byte[length];
+
+        int currentIndex = left;
+        int indexKata = 0;
+
+        int loop = 0;
+        for (int i = 0; i < (length * length) - 1; i++) {
+            loop++;
+            if ((currentIndex - 1) == length-1) {
+                currentIndex = 0;
+            }
+
+            kataLine[indexKata] = bytesOfData[currentIndex];
+            indexKata++;
+            currentIndex++;
+
+            if (loop == length) {
+                kataLine = new byte[length];
+
+                left++;
+                right++;
+                indexKata = 0;
+                currentIndex = left;
+                loop = 0;
+            }
+
+            if (right == length - 1) {
+                right = 0;
+            }
+        }
+    }
+
 
 }
 
@@ -58,7 +97,9 @@ public class StringImpl {
 
 //        DSAString stringChan = new DSAString();
 //        System.out.println(new String(stringChan.behindString("Sukiyo")));
-        DSAString stringChan = new DSAString("geeksforgeeks a computer sciencegeeks");
+        DSAString stringChan = new DSAString("geeks");
         stringChan.findInString("geeks");
+
+        stringChan.printRotateString();
     }
 }
