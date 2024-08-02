@@ -23,7 +23,7 @@ class DSArray<T> {
     }
 
     private boolean isFull() {
-        return array[array.length-1] != null || Objects.nonNull(array[array.length-1]);
+        return array[array.length - 1] != null || Objects.nonNull(array[array.length - 1]);
     }
 
     @SuppressWarnings("unchecked")
@@ -54,9 +54,7 @@ class DSArray<T> {
     }
 
     public T get(int index) {
-        if (index >= this.array.length || index < 0) {
-            throw new IndexOutOfBoundsException();
-        }
+        if (index >= this.array.length || index < 0) throw new IndexOutOfBoundsException();
         return this.array[index];
     }
 
@@ -67,7 +65,17 @@ class DSArray<T> {
         }
     }
 
+    public int length() {
+        int counter = 0;
+        for (int i = 0; i < this.array.length; i++) {
+            if (this.array[i] == null || Objects.isNull(this.array[i])) break;
+            counter++;
+        }
+        return counter;
+    }
+
 }
+
 public class ArrayImpl {
     public static void main(String[] args) {
 
@@ -88,5 +96,7 @@ public class ArrayImpl {
         System.out.println(wifes.get(10));
 
         wifes.transverse();
+
+        System.out.println(wifes.length());
     }
 }
