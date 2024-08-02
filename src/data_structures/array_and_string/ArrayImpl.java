@@ -110,6 +110,10 @@ class DSArray<T> {
         this.array[index] = data;
     }
 
+    public void remove(int index) {
+        this.moveBack(index+1);
+    }
+
 }
 
 public class ArrayImpl {
@@ -142,6 +146,10 @@ public class ArrayImpl {
         System.out.println(wifes.length());
 
         wifes.add("chino kaffu", 3);
+        wifes.transverse();
+        System.out.println(wifes.length());
+
+        wifes.remove(9);
         wifes.transverse();
         System.out.println(wifes.length());
 
