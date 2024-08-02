@@ -74,6 +74,42 @@ class DSArray<T> {
         return counter;
     }
 
+    public void pop() {
+        this.array[this.length()-1] = null;
+    }
+
+
+    private void moveBack(int startIndex) {
+        for (int i = startIndex; i < length(); i++) {
+            this.array[i-1] = this.array[i];
+        }
+
+        this.array[length()-1] = null;
+    }
+
+    private void moveFront(int startIndex) {
+        T nextTempData = this.array[startIndex];
+        for (int i = startIndex; i < length(); i++) {
+            T currentTempData = this.array[i+1];
+            this.array[i+1] = nextTempData;
+
+            nextTempData = currentTempData;
+        }
+    }
+
+    public void dequeue() {
+        moveBack(1);
+    }
+
+    public void add(T data, int index) {
+        if (isFull()) extend();
+
+        if (length() + 1 > length()) extend();
+
+        moveFront(index);
+        this.array[index] = data;
+    }
+
 }
 
 public class ArrayImpl {
@@ -98,5 +134,16 @@ public class ArrayImpl {
         wifes.transverse();
 
         System.out.println(wifes.length());
+
+        wifes.dequeue();
+        System.out.println(wifes.length());
+        System.out.println(wifes.get(0));
+        wifes.transverse();
+        System.out.println(wifes.length());
+
+        wifes.add("chino kaffu", 3);
+        wifes.transverse();
+        System.out.println(wifes.length());
+
     }
 }
